@@ -20,7 +20,7 @@ function Produto (sequelize,Datatypes) {
 
 Produto.associate = (models) => {
     Produto.belongsToMany(models.Pedido,{
-        as: "Pedido",
+        as: "produto_pedido",
         through: "pedidos_has_produtos",
         foreignKey: "produto_id"
     })

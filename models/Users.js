@@ -19,7 +19,7 @@ function User (sequelize,Datatypes) {
 
 User.associate = (models) => {
     User.hasMany(models.Pedido,{
-        as: "Pedido",
+        as: "user_pedido",
         foreignKey: "user_id"
     })
 }

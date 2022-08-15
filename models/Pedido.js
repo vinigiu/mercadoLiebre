@@ -16,16 +16,16 @@ function Pedido (sequelize,Datatypes) {
 
 Pedido.associate = (models) => {
     Pedido.belongsToMany(models.Produto,{
-        as: "Produto",
+        as: "produto_pedido",
         through: "pedidos_has_produtos",
         foreignKey: "pedido_id"
     })
 }
 
 Pedido.associate = (models) => {
-    Pedido.hasMany(models.User,{
-        as: "User",
-        foreignKey: "pedido_id"
+    Pedido.belongsTo(models.User,{
+        as: "pedido_user",
+        foreignKey: "user_id"
     })
 }
 
