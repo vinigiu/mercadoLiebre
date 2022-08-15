@@ -142,23 +142,5 @@
         "category": "in-sale",
         "description": "Deixe a música de dança ganhar vida com o EXTRA BASS™ Animar o ambiente com o EXTRA BASS™1. Um radiador passivo trabalha com o alto-falante mono para aumentar os tons graves e melhorar os graves, apesar do tamanho compacto.",
         "image": "img-parlante-sony.jpg"
-    },
-    {
-        "id": 17,
-        "name": "Cafeteira 2 mundial",
-        "description": "iuhfisuhfisuhdifhsidhfsf",
-        "price": "1000",
-        "discount": "15",
-        "image": "1658792484886foto.jpg",
-        "category": "in-sale"
-    },
-    {
-        "id": 18,
-        "name": "Vinícius Giuseppe Guida",
-        "description": "hgsfghsfghsfghsgf",
-        "price": "1000",
-        "discount": "30",
-        "image": "1659566913736perfil.jpg",
-        "category": "in-sale"
     }
 ]

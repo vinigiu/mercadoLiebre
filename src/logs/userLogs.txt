@@ -191,3 +191,6 @@ O usuário acessou a rota: /images/products/1659566913736perfil.jpg
 O usuário acessou a rota: /user/cadastrar
 O usuário acessou a rota: /user/cadastrar
 O usuário acessou a rota: /user/login
+O usuário acessou a rota: /
+O usuário acessou a rota: /images/products/1658792484886foto.jpg
+O usuário acessou a rota: /images/products/1659566913736perfil.jpg
