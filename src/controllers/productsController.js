@@ -3,19 +3,21 @@ const path = require('path');
 
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+const db = require('../../models');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
 	// Root - Show all products
-	index: (req, res) => {
+	index: async (req, res) => {
+		const products = await db.Produto.findAll();
 		res.render('products', {products:products})
 	},
 
 	// Detail - Detail from one product
-	detail: (req, res) => {
+	detail: async (req, res) => {
 		let productID = req.params.id;
-		const product = products.find(element => element.id == productID)
+		const product = await db.Produto.findByPk(productID);
 		res.render('detail', {product:product} )
 	},
 
@@ -25,22 +27,16 @@ const controller = {
 	},
 	
 	// Create -  Method to store
-	store: (req, res) => {
-		const newProduct = {id:null,name:null,description:null,price:null,discount:null,image:null,category:null}
-		const arraylast = products.pop() //para pegar o ultimo produto da lista
-		//atribuindo valores do produto
-		newProduct.id = arraylast.id + 1 ;
-		newProduct.name = req.body.name;
-		newProduct.description = req.body.description;
-		newProduct.price = req.body.price;
-		newProduct.discount = req.body.discount;
-		newProduct.image = req.file.filename;
-		newProduct.category = req.body.category;
-		//escrevendo a lista de produtos atualizada na base de dados JSON
-		products.push(arraylast);
-		products.push(newProduct);
-		let productsJSON = JSON.stringify(products,null,4)
-		fs.writeFileSync(productsFilePath, productsJSON)
+	store: async (req, res) => {
+		const newProduct = {nome_prod:null,preco:null,desconto:null,categoria:null,descricao:null,img:null};
+		newProduct.nome_prod = req.body.nome_prod;
+		newProduct.descricao = req.body.descricao;
+		newProduct.preco = Number(req.body.preco.replace(',','.'));
+		newProduct.desconto = Number(req.body.desconto);
+		newProduct.img = req.file.filename;
+		newProduct.categoria = req.body.categoria;
+
+		await db.Produto.create(newProduct);
 
 		res.render('product-create-form')
 	},

@@ -23,12 +23,12 @@
 					<section class="product-box">
 						<a href="/products/detail/<%=visitado.id%>">
 							<figure class="product-box_image">
-								<img src="/images/products/<%=visitado.image%>" alt="imagem do produto">
+								<img src="/images/products/<%=visitado.img%>" alt="imagem do produto">
 							</figure>
 							<article class="product-box_data">
-								<h2><%= visitado.price - ((visitado.price*visitado.discount)/100)%></h2>
-								<span><%=visitado.discount%> % OFF</span>
-								<p><%=visitado.name%></p>
+								<h2><%= visitado.preco - ((visitado.preco*visitado.desconto)/100)%></h2>
+								<span><%=visitado.desconto%> % OFF</span>
+								<p><%=visitado.nome_prod%></p>
 								<i class="fas fa-truck"></i>
 							</article>
 						</a>
@@ -51,12 +51,12 @@
 				<section class="product-box">
 					<a href="/products/detail/<%=oferta.id%>">
 						<figure class="product-box_image">
-							<img src="/images/products/<%=oferta.image%>" alt="imagem do produto">
+							<img src="/images/products/<%=oferta.img%>" alt="imagem do produto">
 						</figure>
 						<article class="product-box_data">
-							<h2><%= oferta.price - ((oferta.price*oferta.discount)/100)%></h2>
-							<span><%=oferta.discount%> % OFF</span>
-							<p><%=oferta.name%></p>
+							<h2><%= oferta.preco - ((oferta.preco*oferta.desconto)/100)%></h2>
+							<span><%=oferta.desconto%> % OFF</span>
+							<p><%=oferta.nome_prod%></p>
 							<i class="fas fa-truck"></i>
 						</article>
 					</a>

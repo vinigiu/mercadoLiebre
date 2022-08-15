@@ -11,28 +11,28 @@
 		<div class="container products-wrapper">
 			<div class="row">
 				<div class="col-12">
-					<h2 class="products-title">Detalhe do produto: <%=product.name%></h2>
+					<h2 class="products-title">Detalhe do produto: <%=product.nome_prod%></h2>
 				</div>
 			</div>
 			<div class="product-detail">
 				<div class="row">
 					<div class="col-12 col-lg-8">
-						<img src="/images/products/<%=product.image%>" alt="product image" class="product-detail-img">
+						<img src="/images/products/<%=product.img%>" alt="product image" class="product-detail-img">
 						<p class="product-detail-description">
-							<%=product.description%>
+							<%=product.descricao%>
 						</p>
 					</div>
 					<div class="col-12 col-lg-4">
 						<article class="product-detail-info">
-							<h2 class="product-detail-title"><%=product.name%></h2>
+							<h2 class="product-detail-title"><%=product.nome_prod%></h2>
 							
 								<p class="product-detail-price small">
-									<span>$<%=product.price%></span>
+									<span>$<%=product.preco%></span>
 									/
-									<b><%=product.discount%>% OFF</b>
+									<b><%=product.desconto%>% OFF</b>
 								</p>
 								<p class="product-detail-price">
-									$<%= product.price - ((product.price*product.discount)/100)%>
+									$<%= product.preco - ((product.preco*product.desconto)/100)%>
 								</p>
 	
 							<ul class="actions-list">

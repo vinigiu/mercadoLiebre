@@ -2,24 +2,15 @@ const fs = require('fs');
 const path = require('path');
 
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+// const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+const db = require('../../models');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
-	index: (req, res) => {
-		let visitados = [];
-		for (product of products) {
-			if (product.category == "visited") {
-				visitados.push(product)
-			}
-		};
-		let ofertas = [];
-		for (product of products) {
-			if (product.category == "in-sale") {
-				ofertas.push(product)
-			}
-		};
+	index: async (req, res) => {
+		const visitados = await db.Produto.findAll({where:{categoria:'visited'}})
+		const ofertas = await db.Produto.findAll({where:{categoria:'in-sale'}})
 		res.render('index', {visitados:visitados, ofertas:ofertas} )
 	},
 
@@ -27,13 +18,8 @@ const controller = {
 		// Do the magic
 	},
 
-	sale: (req,res) => {
-		let ofertas = [];
-		for (product of products) {
-			if (product.category == "in-sale") {
-				ofertas.push(product)
-			}
-		};
+	sale: async (req,res) => {
+		const ofertas = await db.Produto.findAll({where:{categoria:'in-sale'}})
 		res.render('insale', {ofertas:ofertas} )
 	},
 
