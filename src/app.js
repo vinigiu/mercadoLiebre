@@ -13,9 +13,9 @@ const app = express();
 
 // ************ Middlewares - (don't touch) ************
 app.use(express.static(path.join(__dirname, '../public')));  // Necessário para os arquivos estáticos na pasta /public
-app.use(express.urlencoded({ extended: false }));
-app.use(logger('dev'));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(logger('dev'));
 app.use(cookieParser());
 app.use(methodOverride('_method')); // Para poder passar o method="POST" no formulário por PUT e DELETE
 app.use(userLogsMiddleware);

@@ -3,7 +3,7 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 
 const usersFilePath = path.join(__dirname, '../data/usersDataBase.json')
-const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'))
+let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'))
 
 const usersController = {
     cadastro: (req, res) => {
@@ -11,14 +11,15 @@ const usersController = {
     },
 
     salvaCadastro: (req, res) => {
-        let novoUser = req.body;
+        console.log('req.body = ', req.body)
+		let novoUser = req.body;
         users.push(novoUser);
         let usersJSON = JSON.stringify(users,null,4);
         fs.writeFileSync(usersFilePath, usersJSON)
 
         console.log('req.body = ', req.body)
 
-        res.render('login')
+        res.redirect('/user/login')
     },
     
     login: (req, res) => {
@@ -37,7 +38,7 @@ const usersController = {
 		console.log("req.body = ", req.body)
 
 		res.render('profile',{user:req.query.fullName})
-	},
+	}
 }
 
 module.exports = usersController

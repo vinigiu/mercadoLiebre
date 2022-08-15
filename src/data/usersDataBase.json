@@ -3,7 +3,14 @@
         "fullName": "Vinicius Guida",
         "email": "vinigiu@hotmail.com",
         "nascimento": "1992-02-06",
-        "genero": "visited",
+        "genero": "masc",
         "password": "1234"
+    },
+    {
+        "fullName": "Vinicius Guida",
+        "email": "vinigiu@hotmail.com",
+        "nascimento": "1992-02-06",
+        "genero": "masc",
+        "password": "5678"
     }
 ]
