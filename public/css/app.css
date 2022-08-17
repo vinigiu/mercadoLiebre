@@ -407,7 +407,23 @@ textarea.form-input {
   padding: 15px;
 }
 
+#form-login-fundo {
+  width: 50%;
+}
 
+#form-login {
+  display: flex;
+  flex-direction: column;
+}
+
+#email-login, #password-login {
+  width:200%
+}
+
+#keepCon {
+  height: 20px;
+  width: 20px;
+}
 
 /*====== Media-Queries ======*/
 @media (min-width: 768px) {

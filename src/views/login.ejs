@@ -13,23 +13,23 @@
 				<h2 class="products-title">Login</h2>
 			</div>
 		</div>
-		<div class="col-12">
-			<form action="/user/login" method="POST" enctype="multipart/form-data">
-				<div class="row product-detail">
+		<div class="col-12" id="form-login-fundo">
+			<form action="/user/login" method="POST">
+				<div class="row product-detail" id="form-login">
 					<div class="col-12 col-md-6">
 						<label for="email" class="form-label">E-mail:</label>
-						<input type="text" id="email" name="email" class="form-input">
+						<input type="text" id="email-login" name="email" class="form-input">
 					</div>
 					<div class="col-12 col-md-6">
 						<label for="password" class="form-label">Senha:</label>
-						<input type="password" id="password" name="password" class="form-input">
+						<input type="password" id="password-login" name="password" class="form-input">
 					</div>
 					<div class="col-12 col-md-6">
 						<label for="keepCon" class="form-label">Manter-se conectado:</label>
 						<input type="checkbox" id="keepCon" name="keepCon" class="form-input">
 					</div>
 					<div class="col-12">
-						<button type="submit" class="buy-now-button">Salvar produto</button>
+						<button type="submit" class="buy-now-button">Entrar</button>
 					</div>
 				</div>
 			</form>

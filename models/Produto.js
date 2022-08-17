@@ -15,15 +15,17 @@ function Produto (sequelize,Datatypes) {
         timestamps: false
     };
     const Produto = sequelize.define(nome, cols, configs)
+    Produto.associate = (models) => {
+        Produto.belongsToMany(models.Pedido,{
+            as: "produto_pedido",
+            through: "pedidos_has_produtos",
+            foreignKey: "produto_id",
+            otherKey: "pedido_id",
+            timestamps:false
+        })
+    }
     return Produto;
 };
 
-Produto.associate = (models) => {
-    Produto.belongsToMany(models.Pedido,{
-        as: "produto_pedido",
-        through: "pedidos_has_produtos",
-        foreignKey: "produto_id"
-    })
-}
 
 module.exports = Produto; 
