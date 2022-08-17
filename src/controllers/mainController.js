@@ -1,9 +1,5 @@
-const fs = require('fs');
-const path = require('path');
-
-const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-// const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const db = require('../../models');
+const { Op } = require("sequelize")
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -14,8 +10,16 @@ const controller = {
 		res.render('index', {visitados:visitados, ofertas:ofertas} )
 	},
 
-	search: (req, res) => {
-		// Do the magic
+	search: async (req, res) => {
+		const busca = req.query.keywords;
+		let resultado = null;
+		if(await db.Produto.findOne({where:{nome_prod: {[Op.like]:`%${busca}%`}}})){
+			resultado = await db.Produto.findOne({where:{nome_prod: {[Op.like]:`%${busca}%`}}})
+		} else {
+			resultado = "";
+		}
+		// const resultado = await db.Produto.findOne({where:{nome_prod: {[Op.like]:`%${busca}%`}}})
+		res.render('results',{resultado:resultado})
 	},
 
 	sale: async (req,res) => {
