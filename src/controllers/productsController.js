@@ -20,7 +20,7 @@ const controller = {
 	create: (req, res) => {
 		res.render('product-create-form')
 	},
-	
+
 	// Create -  Method to store
 	store: async (req, res) => {
 		const newProduct = {nome_prod:null,preco:null,desconto:null,categoria:null,descricao:null,img:null};

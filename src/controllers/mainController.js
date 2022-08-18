@@ -13,12 +13,13 @@ const controller = {
 	search: async (req, res) => {
 		const busca = req.query.keywords;
 		let resultado = null;
+		
 		if(await db.Produto.findOne({where:{nome_prod: {[Op.like]:`%${busca}%`}}})){
 			resultado = await db.Produto.findOne({where:{nome_prod: {[Op.like]:`%${busca}%`}}})
 		} else {
 			resultado = "";
 		}
-		// const resultado = await db.Produto.findOne({where:{nome_prod: {[Op.like]:`%${busca}%`}}})
+
 		res.render('results',{resultado:resultado})
 	},
 

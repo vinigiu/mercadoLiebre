@@ -10,7 +10,7 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Você está editando: <i><%=produto.prod_nome%></i></h2>
+				<h2 class="products-title">Você está editando: <i><%=produto.nome_prod%></i></h2>
 			</div>
 		</div>
 		<div class="col-12">
@@ -18,15 +18,15 @@
 				<div class="row product-detail">
 					<div class="col-12 col-md-6">
 						<label for="nome" class="form-label">Nome do produto:</label>
-						<input type="text" id="name" name="nome" placeholder="Ej: Chinelos Reebok" class="form-input">
+						<input type="text" id="name" name="nome" value="<%=produto.nome_prod%>" class="form-input">
 					</div>
 					<div class="col-12 col-md-6">
 						<label for="preco" class="form-label">Preço do produto:</label>
-						<input type="text" id="price" name="preco" placeholder="Ej: 5678" class="form-input">
+						<input type="text" id="price" name="preco" value="<%=produto.preco%>"class="form-input">
 					</div>
 					<div class="col-12 col-md-6">
 						<label for="desconto" class="form-label">Desconto:</label>
-						<input type="text" id="discount" name="desconto" placeholder="Ej: 15" class="form-input">
+						<input type="text" id="discount" name="desconto" value="<%=produto.desconto%>" class="form-input">
 					</div>
 					<div class="col-12 col-md-6">
 						<label for="categoria" class="form-label">Categoria:</label>
@@ -38,7 +38,7 @@
 					</div>
 					<div class="col-12">
 						<label for="descricao" class="form-label">Descrição:</label>
-						<textarea name="descricao" id="description" class="form-input"></textarea>
+						<textarea name="descricao" id="description" class="form-input"><%=produto.descricao%></textarea>
 					</div>
 					<div class="col-12">
 						<label for="fileImg" class="form-label">Imagem:</label>
