@@ -1,9 +1,4 @@
-const fs = require('fs');
-const path = require('path');
 const bcrypt = require('bcrypt');
-
-const usersFilePath = path.join(__dirname, '../data/usersDataBase.json')
-// let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'))
 const db = require('../../models');
 
 const usersController = {
@@ -20,10 +15,6 @@ const usersController = {
 		novoUser.password = bcrypt.hashSync(req.body.password, 10);
 
 		await db.User.create(novoUser)
-        // users.push(novoUser);
-        // let usersJSON = JSON.stringify(users,null,4);
-        // fs.writeFileSync(usersFilePath, usersJSON)
-
         res.redirect('/user/login')
     },
     
@@ -40,7 +31,7 @@ const usersController = {
 		} else {
 			return res.send("Email inválido")
 		};
-
+		console.log(user)
 		let emailDb = user.email;
 		let passwordDb = user.password;
 
