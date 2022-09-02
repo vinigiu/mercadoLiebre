@@ -8,6 +8,6 @@ Simula um e-commerce com banco de dados de produtos, usuários e pedidos.
   - Possui sistema de edição de produtos existente
   - Possui sistema de exclusão de produtos do banco de dados
 
-Front-End: EJS, HTML e CSS
-Back-end: NodeJS
-ORM utilizado: Sequelize
+-Front-End: EJS, HTML e CSS
+-Back-end: NodeJS
+-ORM utilizado: Sequelize
